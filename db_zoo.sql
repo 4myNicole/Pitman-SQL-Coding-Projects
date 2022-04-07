@@ -195,4 +195,4 @@ INT  NOT NULL CONSTRAINT fk_nutrition_id FOREIGN KEY REFERENCES tbl_nutrition(nu
 
 IF Exists (SELECT 1 FROM INFORMATION_SCHEMA.TABLES tbl_species)
 DROP TABLE tbl_species, tbl_animals etc /* if tables exist, then drop/delete 
-/* 
+/*
