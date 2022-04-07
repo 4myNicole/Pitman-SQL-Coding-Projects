@@ -148,7 +148,7 @@ species_order INT  NOT NULL CONSTRAINT fk_order_id FOREIGN KEY REFERENCES tbl_or
 species_habitat INT  NOT NULL CONSTRAINT fk_habitat_id FOREIGN KEY REFERENCES tbl_habitat(habitat_id) ON UPDATE CASCADE ON DELETE CASCADE,
 species_nutrition INT  NOT NULL CONSTRAINT fk_nutrition_id FOREIGN KEY REFERENCES tbl_nutrition(nutrition_id) ON UPDATE CASCADE ON DELETE CASCADE,
 species_care VARCHAR(50) NOT NULL CONSTRAINT fk_care_id FOREIGN KEY REFERENCES tbl_care(care_id) ON UPDATE CASCADE ON DELETE CASCADE,
-
+species_specialist INT  NOT NULL CONSTRAINT fk_specialist_id FOREIGN KEY REFERENCES tbl_pecialist(specialist_id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 INSERT INTO tbl_species
