@@ -70,9 +70,9 @@ nutrition_cost MONEY NOT NULL
 );
 
 CREATE TABLE tbl_habitat (
-habitat _id INT PRIMARY KEY NOT NULL IDENTITY(5000,1),
-habitat _type VARCHAR(50) NOT NULL,
-habitat _cost MONEY NOT NULL
+habitat_id INT PRIMARY KEY NOT NULL IDENTITY(5000,1),
+habitat_type VARCHAR(50) NOT NULL,
+habitat_cost MONEY NOT NULL
 );
 
 CREATE TABLE tbl_specialist (
