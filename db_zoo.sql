@@ -4,6 +4,7 @@ USE db_zoo;
 
 CREATE TABLE tbl_animalia (
 animalia_id INT PRIMARY KEY NOT NULL IDENTITY(1,1),  
+  
 animalia_type VARCHAR(50) NOT NULL
 );
 
@@ -148,7 +149,7 @@ species_order INT  NOT NULL CONSTRAINT fk_order_id FOREIGN KEY REFERENCES tbl_or
 species_habitat INT  NOT NULL CONSTRAINT fk_habitat_id FOREIGN KEY REFERENCES tbl_habitat(habitat_id) ON UPDATE CASCADE ON DELETE CASCADE,
 species_nutrition INT  NOT NULL CONSTRAINT fk_nutrition_id FOREIGN KEY REFERENCES tbl_nutrition(nutrition_id) ON UPDATE CASCADE ON DELETE CASCADE,
 species_care VARCHAR(50) NOT NULL CONSTRAINT fk_care_id FOREIGN KEY REFERENCES tbl_care(care_id) ON UPDATE CASCADE ON DELETE CASCADE,
-species_specialist INT  NOT NULL CONSTRAINT fk_specialist_id FOREIGN KEY REFERENCES tbl_pecialist(specialist_id) ON UPDATE CASCADE ON DELETE CASCADE
+species_specialist INT  NOT NULL CONSTRAINT fk_specialist_id FOREIGN KEY REFERENCES tbl_specialist(specialist_id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 INSERT INTO tbl_species
@@ -157,7 +158,7 @@ VALUES
 ('brown bear', 1, 102, 3, 5007, 2200, 'care_1'),
 ('jaguar', 1, 102, 1, 5007, 2200, 'care_4'),
 ('penguin', 1, 100, 1, 5003, 2200, 'care_6'),
-('ghost bat', 1, 102, 1, 5007, 2204. 'care_2'),
+('ghost bat', 1, 102, 1, 5007, 2204, 'care_2'),
 ('chicken', 1, 100, 3, 5001, 2205, 'care_0'),
 ('panda', 1, 102, 3, 5006, 2202, 'care_4'),
 ('bobcat', 1, 102, 1, 5001, 2204, 'care_5'),
@@ -168,10 +169,10 @@ SELECT
 a1.species_name, a2.animalia_type, a3.class_type, a4.order_type, a5.habitat_type, a6.nutrition_type, a7.care_type
 FROM tbl_species AS a1
 INNER JOIN tbl_animalia AS a2 on a2.animalia_id = a1.species_animalia
-INNER JOIN tbl_class AS a3 on a3.class_id = a1.species_ class
-INNER JOIN tbl_order AS a4 on a4. order_id = a1.species_order
-INNER JOIN tbl_habitat AS a5 on a5.habitat_id = a1.species_ habitat
-INNER JOIN tbl_nutrition AS a6 on a6. nutrition_id = a1.species_nutrition
+INNER JOIN tbl_class AS a3 on a3.class_id = a1.species_class
+INNER JOIN tbl_order AS a4 on a4.order_id = a1.species_order
+INNER JOIN tbl_habitat AS a5 on a5.habitat_id = a1.species_habitat
+INNER JOIN tbl_nutrition AS a6 on a6.nutrition_id = a1.species_nutrition
 INNER JOIN tbl_care AS a7 on a7.care_id = a1.species_care
 WHERE species_name = 'brown bear'
 ;
