@@ -33,6 +33,11 @@ ON nu.nutrition_id = sp.species_nutrition
 
 SELECT per.specialist_fname, per.specialist_lname, per.specialist_contact
 FROM tbl_specialist AS per
+
+INNER JOIN tbl_care as car
+ON per.specialist_id = car.care_specialist
+
 INNER JOIN tbl_species AS spe
-ON per.specialist_id = spe.species_id
+ON car.care_id = spe.species_care
+
 WHERE spe.species_name = 'penguin'
