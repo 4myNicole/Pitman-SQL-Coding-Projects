@@ -8,13 +8,13 @@ CREATE TABLE Classes (
 CREATE TABLE Students ( 
     Student_ID INT NOT NULL PRIMARY KEY,
     Student_Name VARCHAR(225),
-    Class_ID INT FOREIGN KEY REFERENCES Classes(Class_ID)
+    Class_ID INT FOREIGN KEY REFERENCES Classes(Class_ID),
+    Instructor_ID INT FOREIGN KEY REFERENCES Instructors(Instructor_ID)
 );
 
 CREATE TABLE Instructors (
     Instructor_ID INT PRIMARY KEY,
-    Instructor_Name VARCHAR(225)
-    Instructor_ID INT FOREIGN KEY REFERENCES Classes(Class_ID)
+    Instructor_Name VARCHAR(225),
 );
 
 INSERT INTO Classes (Class_ID, Class_Name)
@@ -52,4 +52,4 @@ INNER JOIN Students AS Stu
 ON cla.Class_ID = stu.Class_ID
 
 INNER JOIN Instructors AS Ins
-ON cla.Class_ID = ins.Instructor_ID ;
+ON stu.Instructor_ID = ins.Instructor_ID ;
